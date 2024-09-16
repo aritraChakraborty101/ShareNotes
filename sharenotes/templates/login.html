@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div class="login-container">
+    <form class="login-form" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+        <div class="form-group">
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+        <div class="form-group">
+            <p>Don't have an account? <a href="{% url 'register' %}" class="register-link">Register</a></p>
+        </div>
+    </form>
+</div>
+{% include 'footer.html' %}
+{% endblock %}

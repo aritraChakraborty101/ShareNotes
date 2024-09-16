@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+<footer>
+    <p>Made by [Your Name]</p>
+    <div class="social-icons">
+        <a href="https://github.com/yourprofile" target="_blank">
+            <img src="{% static 'images/GitHub Icon.png' %}" alt="GitHub">
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank">
+            <img src="{% static 'images/Linkedin Icon.png' %}" alt="Linkedin">
+        </a>
+        <a href="https://tswitter.com/yourprofile" target="_blank">
+            <img src="{% static 'images/Twitter Icon.png' %}" alt="Twitter">
+        </a>
+    </div>
+</footer>
+{% endblock %}
