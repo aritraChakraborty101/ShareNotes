@@ -1,0 +1,12 @@
+.navbar-nav {
+    margin-left: auto;
+}
+.navbar-nav li {
+    margin-right: 70px;
+}
+.navbar {
+    background-color: #D2E9E9;
+}
+nav a {
+    color: #D2E9E9;
+}
