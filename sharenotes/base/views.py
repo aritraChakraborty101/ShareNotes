@@ -43,5 +43,38 @@ def logoutUser(request):
     return redirect('home')
 
 def register(request):
+
+    if request.method == 'POST':
+        first_name = request.POST.get('first-name')
+        last_name = request.POST.get('last-name')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confrim-password')
+
+        print(password, confirm_password)
+        if password != confirm_password:
+            messages.error(request, 'Passwords do not match')
+            return redirect('register')
+        
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'Email is already taken')
+            return redirect('register')
+
+        
+        user = User.objects.create_user(
+            username=email,
+            email=email,
+            password=password,
+            first_name=first_name,
+            last_name=last_name
+        )
+
+        print(
+            f'User {user.username} created'
+        )
+        user.save()
+        messages.success(request, 'Account created successfully')
+        return redirect('login')
+    
     return render(request, 'registration.html')
 
