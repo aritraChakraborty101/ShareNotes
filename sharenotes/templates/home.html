@@ -3,6 +3,8 @@
 {% block content %}
     {% include 'navbar.html' %}
     <h1>Home</h1>
-    <p>Welcome to the home page!</p>
+    <p>Welcome {{ user.first_name }}! You are logged in.
+
+    </p>
     {% include 'footer.html' %}
 {% endblock %}
